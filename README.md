@@ -12,7 +12,7 @@ wih
 ```Java
 private static final By button = NgBy.partialButtonText("Go"); 
 ```
-The custom methods with `org.openqa.selenium.By` arguments would accept `org.openqa.selenium.By`.
+The custom methods with `org.openqa.selenium.By` arguments would accept `com.github.sergueik.jprotractor.NgBy`.
 
 ### See Also
 

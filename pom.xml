@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mycompany</groupId>
-  <artifactId>cucumber</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <name>Cucumber</name>
+  <groupId>com.github.sergueik.cucumber</groupId>
+  <artifactId>jprotractor_cucumber</artifactId>
+  <version>1.1.0-SNAPSHOT</version>
+  <name>${project.groupId}:${project.artifactId}</name>
   <description/>
   <developers>
     <developer>
@@ -26,9 +26,9 @@
     <junit.version>4.12</junit.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
     <phantomjsdriver.version>1.2.1</phantomjsdriver.version>
-    <selenium.version>2.53.0</selenium.version>
+    <selenium.version>3.13.0</selenium.version>
   </properties>
   <dependencies>
     <dependency>
@@ -111,11 +111,20 @@
       <groupId>com.github.sergueik.jprotractor</groupId>
       <artifactId>jprotractor</artifactId>
       <version>${jprotractor.version}</version>
-      <!--
- installing to system scope is not sufficient
-     <scope>system</scope>
-     <systemPath>${project.basedir}/src/main/resources/jprotractor-${jprotractor.version}.jar</systemPath>
--->
+      <exclusions>
+        <exclusion>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-server</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-remote-driver</artifactId>
+        </exclusion>
+        <exclusion>
+         <groupId>org.seleniumhq.selenium</groupId>
+         <artifactId>selenium-java</artifactId>
+	</exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
   <build>
